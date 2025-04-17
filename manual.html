@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technology/002 - Course Resources</title>
+    <meta name="description" content="Comprehensive resources for Web Technology/002 including syllabus, theory notes, lab manuals, and reference links.">
+    <meta name="keywords" content="web technology, syllabus, theory notes, lab manual, reference links, web development, HTML, CSS, JavaScript">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+
+        /* Header Styles */
+        header {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        /* Main Content Styles */
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+
+        section h2 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        /* List Styles */
+        .syllabus-list, .theory-notes-list, .lab-manual-list, .reference-links-list {
+            padding-left: 20px;
+        }
+
+        .syllabus-list li, .theory-notes-list li, .lab-manual-list li, .reference-links-list li {
+            margin-bottom: 5px; 
+            padding: 5px; 
+            border-left: 2px solid #4CAF50; 
+            background-color: #ffffff;
+            transition: background-color 0.3s;
+        }
+
+        .syllabus-list li:hover, 
+        .theory-notes-list li:hover, 
+        .lab-manual-list li:hover, 
+        .reference-links-list li:hover {
+            background-color: #e0f7e0; 
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background: #4CAF50;
+            color: white;
+            margin-top: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web Technology/002</h1>
+    </header>
+
+    <nav>
+        <ul class="main-nav">
+            <li><a href="#home" aria-label="Go to Home Section">Home</a></li>
+            <li><a href="#syllabus" aria-label="Go to Syllabus Section">Syllabus</a></li>
+            <li><a href="#theory-notes" aria-label="Go to Theory Notes Section">Theory Notes</a></li>
+            <li><a href="#lab-manual" aria-label="Go to Lab Manual Section">Lab Manual</a></li>
+            <li><a href="#reference-links" aria-label="Go to Reference Links Section">Reference Links</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to the web technology resource page! We're glad to have you here. This page serves as a comprehensive guide for students enrolled in the Web Technology/002 course, providing important resources to aid in your learning and understanding of web development technologies.</p>
+        </section>
+        
+        <section id="syllabus">
+            <h2>Syllabus</h2>
+            <ul class="syllabus-list">
+                <li>Module 1: Introduction to Web Technologies
+                    <ul>
+                        <li>Overview of the Internet</li>
+                        <li>Understanding HTML, CSS, and JavaScript</li>
+                    </ul>
+                </li>
+                <li>Module 2: HTML Basics
+                    <ul>
+                        <li>HTML Document Structure</li>
+                        <li>Common HTML Tags</li>
+                        <li>Creating Tables, Forms, and Lists</li>
+                    </ul>
+                </li>
+                <li>Module 3: CSS Fundamentals
+                    <ul>
+                        <li>CSS Syntax and Selectors</li>
+                        <li>Styling Text and Box Model</li>
+                        <li>Responsive Design Principles</li>
+                    </ul>
+                </li>
+                <li>Module 4: Introduction to JavaScript
+                    <ul>
+                        <li>JavaScript Basics: Variables, Data Types, and Operators</li>
+                        <li>Control Structures and Functions</li>
+                        <li>Event-driven Programming</li>
+                    </ul>
+                </li>
+                <li>Module 5: Web Development Frameworks 
+                    <ul>
+                        <li>Introduction to Frontend Frameworks (e.g., React, Angular)</li>
+                        <li>Introduction to Backend Technologies (e.g., Node.js)</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="theory-notes">
+            <h2>Theory Notes (10 Chapters)</h2>
+            <ul class="theory-notes-list">
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 1: Introduction</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>This chapter introduces the concept of Web Technologies, covering the history and evolution of the internet, the World Wide Web, and how web technologies impact our daily lives. You'll learn about different types of web development and the basic tools needed to start building websites.</p>
+                        <p><strong>Example:</strong> Comparing various web technologies like HTML, CSS, and JavaScript can help you understand their roles. HTML structures the content, CSS styles it, and JavaScript adds interactivity.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 2: HTML Language</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>In this chapter, you will dive deep into the structure of HTML (Hypertext Markup Language). You'll learn about essential HTML tags, document structure, and how to create semantic HTML. This chapter also covers how to add multimedia elements like images, audio, and video.</p>
+                        <p><strong>Example:</strong> A simple HTML document can be structured like this:<br><code>&lt;!DOCTYPE html&gt;<br>&lt;html&gt;<br>&lt;head&gt;&lt;title&gt;My First Page&lt;/title&gt;&lt;/head&gt;<br>&lt;body&gt;&lt;h1&gt;Hello World!&lt;/h1&gt;&lt;p&gt;This is my first paragraph.&lt;/p&gt;&lt;/body&gt;<br>&lt;/html&gt;</code></p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 3: CSS Fundamentals</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>This chapter focuses on CSS (Cascading Style Sheets) and its role in web design. Understanding selectors, properties, and values is essential for styling HTML documents. You'll also learn about the box model, positioning elements, and using colors and typography effectively.</p>
+                        <p><strong>Example:</strong> To style a paragraph with CSS, you can use:<br><code>p { color: blue; font-size: 16px; }</code>This makes all paragraphs blue and gives them a font size of 16 pixels.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 4: JavaScript Overview</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>JavaScript brings interactivity to the web. In this chapter, you'll learn the fundamentals of JavaScript, including variables, data types, and operators. You'll also explore control structures like loops and conditionals, functions, and how to work with the DOM (Document Object Model) to manipulate HTML elements dynamically.</p>
+                        <p><strong>Example:</strong> A simple JavaScript function to display an alert:<br><code>function showAlert() { alert('Hello, World!'); }</code>Call this function with <code>showAlert();</code> to see the alert box.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 5: Advanced HTML</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>This chapter explores advanced concepts in HTML, including forms and input types. You'll learn how to create interactive forms, validate user input, and understand HTML5 elements. Additionally, we'll discuss accessibility considerations in web development.</p>
+                        <p><strong>Example:</strong> A simple form:<br><code>&lt;form action="submit.php" method="post"&gt;<br>&lt;label for="name"&gt;Name:&lt;/label&gt;&lt;input type="text" id="name" name="name"&gt;<br>&lt;input type="submit" value="Submit"&gt;&lt;/form&gt;</code></p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 6: CSS Layout Techniques</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>In this chapter, you will learn modern layout techniques using CSS, including Flexbox and Grid. You'll understand how to create responsive designs that adapt to different screen sizes, making your application user-friendly across all devices.</p>
+                        <p><strong>Example:</strong> Using Flexbox for a navbar:<br><code>nav { display: flex; justify-content: space-around; }</code> This creates a flexible layout for the navigation items.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 7: Client-side vs Server-side</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>Gain insights into the difference between client-side and server-side web development. This chapter covers how server-side scripts interact with databases and how client-side scripting enhances user interaction on web pages.</p>
+                        <p><strong>Example:</strong> Client-side: JavaScript runs in the browser to create dynamic web pages. Server-side: PHP or Node.js processes requests and sends data back to the client.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 8: Introduction to Web Storage</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>This chapter introduces web storage concepts and APIs, including Local Storage and Session Storage. You'll learn how to store data on the client-side, manage user sessions, and understand when to use different storage solutions effectively.</p>
+                        <p><strong>Example:</strong> Storing data in Local Storage:<br><code>localStorage.setItem('username', 'JohnDoe');</code><br>Retrieve with <code>const username = localStorage.getItem('username');</code></p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 9: Basics of Responsive Web Design</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>Learn the principles of responsive web design and the importance of media queries. This chapter will guide you through practical exercises that demonstrate how to implement responsive designs to cater to various devices, including desktop, tablet, and mobile.</p>
+                        <p><strong>Example:</strong> A simple media query:<br><code>@media (max-width: 600px) { body { background-color: lightblue; } }</code> This changes the background color for devices with a screen width of 600 pixels or less.</p>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="toggle-title" style="cursor: pointer;">Chapter 10: SEO and Performance Optimization</h3>
+                    <div class="toggle-content" style="display: none;">
+                        <p>In the final chapter, you'll discover strategies for optimizing your web applications for search engines. Learn about SEO fundamentals, including metadata, keywords, and link-building. Additionally, explore performance metrics and techniques for making websites faster and more efficient.</p>
+                        <p><strong>Example:</strong> Implementing SEO:<br> Use descriptive title and meta tags in the head section:<br><code>&lt;title&gt;Learn Web Development&lt;/title&gt;<br>&lt;meta name="description" content="Learn web development with our comprehensive course."&gt;</code></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        
+        <section id="lab-manual">
+            <h2>Lab Manual</h2>
+            <ol class="lab-manual-list">
+                <li>Experiment 1: Introduction to HTML
+                    <p>Students create a basic HTML page including text, images, and links.</p>
+                </li>
+                <li>Experiment 2: Creating a Simple Web Page
+                    <p>In this lab, students practice HTML structure and tags to construct a simple webpage.</p>
+                </li>
+                <li>Experiment 3: Styling with CSS
+                    <p>Apply CSS styles to various HTML elements and create a visually appealing layout.</p>
+                </li>
+                <li>Experiment 4: JavaScript Basics
+                    <p>Students learn how to write simple scripts to manipulate HTML elements dynamically.</p>
+                </li>
+                <li>Experiment 5: Creating a Responsive Website
+                    <p>Design a website that adapts to different screen sizes using CSS media queries.</p>
+                </li>
+                <li>Experiment 6: AJAX Basics
+                    <p>Introduction to AJAX for fetching data without reloading the page.</p>
+                </li>
+                <li>Experiment 7: Deploying a Web Application
+                    <p>Learn the process and tools needed to host a website online.</p>
+                </li>
+            </ol>
+        </section>
+        
+        <section id="reference-links">
+            <h2>Reference Links (20 Links)</h2>
+            <ul class="reference-links-list">
+                <li><a href="https://www.w3schools.com" target="_blank" rel="noopener noreferrer">W3Schools</a> - Great resource for learning web development.</li>
+                <li><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">Mozilla Developer Network</a> - Comprehensive guides and documentation for web technologies.</li>
+                <li><a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer">Stack Overflow</a> - A community-driven Q&A platform for programming-related questions.</li>
+                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> - A platform for version control and collaboration on coding projects.</li>
+                <li><a href="https://codepen.io" target="_blank" rel="noopener noreferrer">CodePen</a> - An online code editor for front-end designs.</li>
+                <li><a href="https://jsfiddle.net" target="_blank" rel="noopener noreferrer">JSFiddle</a> - A tool for testing and showcasing user-created HTML, CSS, and JavaScript code snippets.</li>
+                <li><a href="https://www.freecodecamp.org" target="_blank" rel="noopener noreferrer">FreeCodeCamp</a> - A platform offering free coding lessons and interactive coding challenges.</li>
+                <li><a href="https://css-tricks.com" target="_blank" rel="noopener noreferrer">CSS-Tricks</a> - Tips and tutorials for mastering CSS.</li>
+                <li><a href="https://www.smashingmagazine.com" target="_blank" rel="noopener noreferrer">Smashing Magazine</a> - Articles and resources for web developers and designers.</li>
+                <li><a href="https://alistapart.com" target="_blank" rel="noopener noreferrer">A List Apart</a> - A publication exploring the design, development, and meaning of web content.</li>
+                <li><a href="https://developers.google.com" target="_blank" rel="noopener noreferrer">Google Developers</a> - Documentation and tools for web developers by Google.</li>
+                <li><a href="https://developer.microsoft.com" target="_blank" rel="noopener noreferrer">Microsoft Developer</a> - Resources for Microsoft web technologies.</li>
+                <li><a href="https://developer.apple.com" target="_blank" rel="noopener noreferrer">Apple Developer</a> - Resources for developing web applications in the Apple ecosystem.</li>
+                <li><a href="https://getbootstrap.com" target="_blank" rel="noopener noreferrer">Bootstrap</a> - A popular front-end framework for developing responsive and mobile-first websites.</li>
+                <li><a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">Tailwind CSS</a> - A utility-first CSS framework for creating custom designs.</li>
+                <li><a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React</a> - A JavaScript library for building user interfaces.</li>
+                <li><a href="https://angular.io" target="_blank" rel="noopener noreferrer">Angular</a> - A platform for building mobile and desktop web applications.</li>
+                <li><a href="https://vuejs.org" target="_blank" rel="noopener noreferrer">Vue.js</a> - A progressive framework for building user interfaces.</li>
+                <li><a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">Node.js</a> - JavaScript runtime built on Chrome's V8 JavaScript engine.</li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" rel="noopener noreferrer">MDN Web Docs</a> - Detailed documentation and guides from Mozilla.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2023 Web Technology/002. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle visibility for theory notes content and examples
+        document.querySelectorAll('.toggle-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const content = this.nextElementSibling; // next sibling is the <div> element
+                content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

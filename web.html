@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Technology/002</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6e48aa, #9d50bb);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 120px;
+            z-index: 90;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #6e48aa;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #6e48aa;
+            color: white;
+        }
+        
+        /* Main Content Sections */
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #6e48aa;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        /* Syllabus Styles */
+        .syllabus-item {
+            margin-bottom: 25px;
+        }
+        .syllabus-item h3 {
+            color: #9d50bb;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .syllabus-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #6e48aa;
+        }
+        
+        /* Textbook Styles */
+        .textbook {
+            display: flex;
+            margin-bottom: 30px;
+            align-items: flex-start;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .textbook-cover {
+            width: 150px;
+            margin-right: 25px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .textbook-info h3 {
+            color: #9d50bb;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        .textbook-info p {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        .textbook-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+        .download-btn {
+            display: inline-block;
+            background-color: #6e48aa;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        .download-btn:hover {
+            background-color: #7d55c5;
+        }
+        
+        /* Chapter Styles */
+        .chapter {
+            margin-bottom: 35px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 25px;
+        }
+        .chapter:last-child {
+            border-bottom: none;
+        }
+        .chapter h3 {
+            color: #6e48aa;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .chapter h4 {
+            color: #7d55c5;
+            margin: 15px 0 8px;
+            font-size: 1.2rem;
+        }
+        .chapter ul, .chapter ol {
+            margin-left: 25px;
+            margin-bottom: 15px;
+        }
+        .chapter ul li, .chapter ol li {
+            margin-bottom: 8px;
+        }
+        .chapter-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+        }
+        .topic-card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #9d50bb;
+        }
+        
+        /* Lab Manual Styles */
+        .lab-experiment {
+            margin-bottom: 35px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .lab-experiment h3 {
+            color: #9d50bb;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        .lab-experiment ol {
+            margin-left: 25px;
+        }
+        .lab-experiment ol li {
+            margin-bottom: 10px;
+        }
+        .objective-box {
+            background-color: #eef;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .objective-box h4 {
+            margin-bottom: 8px;
+            color: #6e48aa;
+        }
+        .code-snippet {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            line-height: 1.5;
+        }
+        .code-keyword {
+            color: #f92672;
+        }
+        .code-tag {
+            color: #f92672;
+        }
+        .code-attr {
+            color: #a6e22e;
+        }
+        .code-value {
+            color: #e6db74;
+        }
+        .expected-output {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 3px solid #9d50bb;
+        }
+        
+        /* Reference Links Styles */
+        .reference-links {
+            column-count: 3;
+            column-gap: 30px;
+        }
+        .reference-links li {
+            margin-bottom: 12px;
+            break-inside: avoid;
+            padding-left: 10px;
+            border-left: 2px solid #ddd;
+        }
+        .reference-links a {
+            color: #6e48aa;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            padding: 3px 0;
+        }
+        .reference-links a:hover {
+            color: #9d50bb;
+            text-decoration: underline;
+        }
+        .reference-category {
+            margin-top: 25px;
+        }
+        .reference-category h3 {
+            color: #9d50bb;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            color: #666;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .reference-links {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav ul li {
+                margin: 5px 0;
+            }
+            .textbook {
+                flex-direction: column;
+            }
+            .textbook-cover {
+                margin-bottom: 15px;
+                width: 100%;
+                max-width: 200px;
+            }
+            .reference-links {
+                column-count: 1;
+            }
+            .chapter-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Web Technology/002</h1>
+            <p>Comprehensive Learning Resource</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#syllabus" class="active">Syllabus</a></li>
+                <li><a href="#textbooks">Textbooks</a></li>
+                <li><a href="#theory">Theory Notes</a></li>
+                <li><a href="#lab">Lab Manual</a></li>
+                <li><a href="#references">Reference Links</a></li>
+            </ul>
+        </nav>
+        
+        <!-- Syllabus Section -->
+        <section id="syllabus">
+            <h2>Syllabus</h2>
+            
+            <div class="syllabus-item">
+                <h3>Course Description</h3>
+                <p>This course provides a comprehensive introduction to web technologies covering both client-side and server-side development. Students will learn to design and develop modern, responsive websites using current standards and best practices.</p>
+            </div>
+            
+            <div class="syllabus-item">
+                <h3>Course Objectives</h3>
+                <div class="syllabus-grid">
+                    <div class="syllabus-card">
+                        <h4>Fundamentals</h4>
+                        <ul>
+                            <li>Understand web architecture</li>
+                            <li>Learn core web technologies</li>
+                            <li>Master HTML5 & CSS3</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-card">
+                        <h4>Development</h4>
+                        <ul>
+                            <li>Build interactive websites</li>
+                            <li>Implement responsive design</li>
+                            <li>Develop client-side scripts</li>
+                        </ul>
+                    </div>
+                    <div class="syllabus-card">
+                        <h4>Advanced Topics</h4>
+                        <ul>
+                            <li>Server-side programming</li>
+                            <li>Database integration</li>
+                            <li>Web security principles</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="syllabus-item">
+                <h3>Detailed Curriculum</h3>
+                <div class="syllabus-grid">
+                    <div class="syllabus-card">
+                        <h4>Frontend Technologies</h4>
+                        <ol>
+                            <li>HTML5 Semantic Elements</li>
+                            <li>CSS3 Flexbox/Grid</li>
+                            <li>JavaScript ES6+</li>
+                            <li>DOM Manipulation</li>
+                        </ol>
+                    </div>
+                    <div class="syllabus-card">
+                        <h4>Backend Technologies</h4>
+                        <ol>
+                            <li>Node.js Basics</li>
+                            <li>RESTful APIs</li>
+                            <li>Database Connectivity</li>
+                            <li>Authentication</li>
+                        </ol>
+                    </div>
+                    <div class="syllabus-card">
+                        <h4>Additional Topics</h4>
+                        <ol>
+                            <li>Web Performance</li>
+                            <li>Progressive Web Apps</li>
+                            <li>Web Security</li>
+                            <li>Deployment</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="syllabus-item">
+                <h3>Evaluation Scheme</h3>
+                <table style="width:100%; border-collapse: collapse; margin-top:15px;">
+                    <tr style="background-color:#f0f0f0;">
+                        <th style="padding:10px; text-align:left; border-bottom:1px solid #ddd;">Component</th>
+                        <th style="padding:10px; text-align:left; border-bottom:1px solid #ddd;">Weightage</th>
+                        <th style="padding:10px; text-align:left; border-bottom:1px solid #ddd;">Details</th>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">Theory Exams</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">50%</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">Midterm (20%) + Final (30%)</td>
+                    </tr>
+                    <tr style="background-color:#f9f9f9;">
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">Practical Work</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">30%</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">Lab exercises + Projects</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">Assignments</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">15%</td>
+                        <td style="padding:10px; border-bottom:1px solid #ddd;">4 assignments (3.75% each)</td>
+                    </tr>
+                    <tr style="background-color:#f9f9f9;">
+                        <td style="padding:10px;">Participation</td>
+                        <td style="padding:10px;">5%</td>
+                        <td style="padding:10px;">Class engagement</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="syllabus-item">
+                <h3>Recommended Study Approach</h3>
+                <ol>
+                    <li>Attend all lectures and take notes</li>
+                    <li>Complete lab exercises weekly</li>
+                    <li>Review theory concepts before practicals</li>
+                    <li>Participate in discussion forums</li>
+                    <li>Start assignments early</li>
+                    <li>Form study groups</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Textbooks Section -->
+        <section id="textbooks">
+            <h2>Textbooks & Resources</h2>
+            
+            <div class="textbook">
+                <img src="https://m.media-amazon.com/images/I/51inM2PYBmL._SX404_BO1,204,203,200_.jpg" alt="Web Development Textbook" class="textbook-cover">
+                <div class="textbook-info">
+                    <h3>Web Development and Design Foundations with HTML5</h3>
+                    <div class="textbook-meta">
+                        <span><strong>Author:</strong> Terry Felke-Morris</span>
+                        <span><strong>Edition:</strong> 9th (2020)</span>
+                        <span><strong>Pages:</strong> 720</span>
+                    </div>
+                    <p>This textbook provides a comprehensive introduction to web development and design using HTML5, CSS3, and JavaScript. It covers responsive design, web publishing, and includes hands-on exercises.</p>
+                    <p><strong>Key Features:</strong> Color-coded code examples, case studies, web design best practices, and coverage of accessibility standards.</p>
+                    <a href="#" class="download-btn">Download Textbook (PDF)</a>
+                    <a href="#" class="download-btn" style="background-color:#4CAF50; margin-left:10px;">Companion Website</a>
+                </div>
+            </div>
+            
+            <div class="textbook">
+                <img src="https://m.media-amazon.com/images/I/51WS36aA2BL._SX377_BO1,204,203,200_.jpg" alt="JavaScript Textbook" class="textbook-cover">
+                <div class="textbook-info">
+                    <h3>Eloquent JavaScript: A Modern Introduction to Programming</h3>
+                    <div class="textbook-meta">
+                        <span><strong>Author:</strong> Marijn Haverbeke</span>
+                        <span><strong>Edition:</strong> 3rd (2018)</span>
+                        <span><strong>Pages:</strong> 472</span>
+                    </div>
+                    <p>This book dives deep into JavaScript programming with practical examples and exercises. It covers everything from basic programming concepts to advanced topics like Node.js and asynchronous programming.</p>
+                    <p><strong>Key Features:</strong> Interactive coding examples available online, project-based learning approach, and coverage of modern JavaScript features.</p>
+                    <a href="#" class="download-btn">Download Textbook (PDF)</a>
+                    <a href="#" class="download-btn" style="background-color:#4CAF50; margin-left:10px;">Online Exercises</a>
+                </div>
+            </div>
+            
+            <div class="textbook">
+                <img src="https://m.media-amazon.com/images/I/51WIKlio9qL._SX376_BO1,204,203,200_.jpg" alt="HTTP Textbook" class="textbook-cover">
+                <div class="textbook-info">
+                    <h3>HTTP: The Definitive Guide</h3>
+                    <div class="textbook-meta">
+                        <span><strong>Authors:</strong> David Gourley, Brian Totty</span>
+                        <span><strong>Edition:</strong> 1st (2002)</span>
+                        <span><strong>Pages:</strong> 656</span>
+                    </div>
+                    <p>This book thoroughly explains the HTTP protocol and web architecture. While older, it remains the most comprehensive guide to HTTP/1.1 and related technologies.</p>
+                    <p><strong>Key Features:</strong> Detailed protocol explanations, caching mechanisms, security considerations, and real-world examples.</p>
+                    <a href="#" class="download-btn">Download Textbook (PDF)</a>
+                </div>
+            </div>
+            
+            <div class="textbook">
+                <img src="https://m.media-amazon.com/images/I/51VlQ9J1WlL._SX404_BO1,204,203,200_.jpg" alt="CSS Textbook" class="textbook-cover">
+                <div class="textbook-info">
+                    <h3>CSS: The Definitive Guide</h3>
+                    <div class="textbook-meta">
+                        <span><strong>Author:</strong> Eric A. Meyer</span>
+                        <span><strong>Edition:</strong> 4th (2017)</span>
+                        <span><strong>Pages:</strong> 1096</span>
+                    </div>
+                    <p>This comprehensive guide covers all aspects of CSS from basic styling to advanced layout techniques. It's an essential resource for mastering modern CSS.</p>
+                    <p><strong>Key Features:</strong> Detailed property reference, visual formatting model explanation, Flexbox and Grid coverage, and animation techniques.</p>
+                    <a href="#" class="download-btn">Download Textbook (PDF)</a>
+                </div>
+            </div>
+            
+            <div class="textbook">
+                <img src="https://m.media-amazon.com/images/I/51-+O3-wFxL._SX379_BO1,204,203,200_.jpg" alt="Web Security Textbook" class="textbook-cover">
+                <div class="textbook-info">
+                    <h3>The Web Application Hacker's Handbook</h3>
+                    <div class="textbook-meta">
+                        <span><strong>Authors:</strong> Dafydd Stuttard, Marcus Pinto</span>
+                        <span><strong>Edition:</strong> 2nd (2011)</span>
+                        <span><strong>Pages:</strong> 912</span>
+                    </div>
+                    <p>This book provides in-depth coverage of web application security, teaching both offensive and defensive techniques for securing web applications.</p>
+                    <p><strong>Key Features:</strong> Practical attack techniques, defense strategies, real-world case studies, and coverage of modern web vulnerabilities.</p>
+                    <a href="#" class="download-btn">Download Textbook (PDF)</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Theory Notes Section -->
+        <section id="theory">
+            <h2>Theory Notes (10 Chapters)</h2>
+            
+            <div class="chapter">
+                <h3>Chapter 1: Introduction to Web Technologies</h3>
+                <div class="chapter-content">
+                    <div class="topic-card">
+                        <h4>Web Evolution</h4>
+                        <ul>
+                            <li>Web 1.0 to Web 3.0</li>
+                            <li>Static vs Dynamic Websites</li>
+                            <li>Progressive Web Apps</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Client-Server Model</h4>
+                        <ul>
+                            <li>Request-Response Cycle</li>
+                            <li>HTTP Methods (GET, POST)</li>
+                            <li>Stateless Nature of HTTP</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Web Protocols</h4>
+                        <ul>
+                            <li>HTTP vs HTTPS</li>
+                            <li>WebSockets</li>
+                            <li>DNS Resolution</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="download-btn">Download Full Chapter (PDF)</a>
+                <a href="#" class="download-btn" style="background-color:#2196F3;">View Slides</a>
+            </div>
+            
+            <div class="chapter">
+                <h3>Chapter 2: HTML5 Fundamentals</h3>
+                <div class="chapter-content">
+                    <div class="topic-card">
+                        <h4>HTML5 Structure</h4>
+                        <ul>
+                            <li>Document Type Declaration</li>
+                            <li>Head vs Body Sections</li>
+                            <li>Meta Tags</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Semantic Elements</h4>
+                        <ul>
+                            <li>header, nav, main, footer</li>
+                            <li>article vs section</li>
+                            <li>Accessibility Benefits</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Forms & Input</h4>
+                        <ul>
+                            <li>Form Validation</li>
+                            <li>New Input Types</li>
+                            <li>Form Submission Methods</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="download-btn">Download Full Chapter (PDF)</a>
+                <a href="#" class="download-btn" style="background-color:#2196F3;">View Slides</a>
+            </div>
+            
+            <!-- Chapters 3-10 would follow similar structure with expanded content -->
+            <div class="chapter">
+                <h3>Chapter 3: CSS & Responsive Design</h3>
+                <div class="chapter-content">
+                    <div class="topic-card">
+                        <h4>CSS Fundamentals</h4>
+                        <ul>
+                            <li>Selectors Specificity</li>
+                            <li>Box Model</li>
+                            <li>Positioning Schemes</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Layout Systems</h4>
+                        <ul>
+                            <li>Flexbox Deep Dive</li>
+                            <li>CSS Grid Techniques</li>
+                            <li>Multi-column Layout</li>
+                        </ul>
+                    </div>
+                    <div class="topic-card">
+                        <h4>Responsive Design</h4>
+                        <ul>
+                            <li>Media Query Strategies</li>
+                            <li>Mobile-first Approach</li>
+                            <li>Viewport Configuration</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="#" class="download-btn">Download Full Chapter (PDF)</a>
+                <a href="#" class="download-btn" style="background-color:#2196F3;">View Slides</a>
+            </div>
+            
+            <!-- Additional chapters would continue here -->
+            
+        </section>
+        
+        <!-- Lab Manual Section -->
+        <section id="lab">
+            <h2>Lab Manual (15 Experiments)</h2>
+            
+            <div class="lab-experiment">
+                <h3>Experiment 1: Basic HTML Page Structure</h3>
+                <div class="objective-box">
+                    <h4>Learning Objectives</h4>
+                    <ul>
+                        <li>Understand basic HTML document structure</li>
+                        <li>Practice using essential HTML tags</li>
+                        <li>Create a valid HTML5 document</li>
+                    </ul>
+                </div>
+                <h4>Procedure</h4>
+                <ol>
+                    <li>Create a new HTML file named <code>index.html</code></li>
+                    <li>Set up the basic HTML5 document structure with doctype, html, head, and body tags</li>
+                    <li>Add a heading (h1) with your name</li>
+                    <li>Create a paragraph introducing yourself</li>
+                    <li>Add an image tag with your photo or a placeholder</li>
+                    <li>Create a simple navigation with 3 links</li>
+                    <li>Validate your code using the W3C Validator</li>
+                </ol>
+                <h4>Sample Code</h4>
+                <div class="code-snippet">
+                    <span class="code-tag">&lt;!DOCTYPE html&gt;</span><br>
+                    <span class="code-tag">&lt;html</span> <span class="code-attr">lang</span>=<span class="code-value">"en"</span><span class="code-tag">&gt;</span><br>
+                    <span class="code-tag">&lt;head&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-tag">&lt;meta</span> <span class="code-attr">charset</span>=<span class="code-value">"UTF-8"</span><span class="code-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-tag">&lt;title&gt;</span>My First Page<span class="code-tag">&lt;/title&gt;</span><br>
+                    <span class="code-tag">&lt;/head&gt;</span><br>
+                    <span class="code-tag">&lt;body&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-tag">&lt;h1&gt;</span>Welcome to My Website<span class="code-tag">&lt;/h1&gt;</span><br>
+                    &nbsp;&nbsp;<span class="code-tag">&lt;p&gt;</span>This is my first HTML page...<span class="code-tag">&lt;/p&gt;</span><br>
+                    <span class="code-tag">&lt;/body&gt;</span><br>
+                    <span class="code-tag">&lt;/html&gt;</span>
+                </div>
+                <h4>Expected Output</h4>
+                <div class="expected-output">
+                    <p>A properly structured HTML document that displays your name, introduction paragraph, and image in a web browser.</p>
+                </div>
+                <a href="#" class="download-btn">Download Lab Sheet</a>
+                <a href="#" class="download-btn" style="background-color:#FF9800;">Solution Code</a>
+            </div>
+            
+            <div class="lab-experiment">
+                <h3>Experiment 2: CSS Styling and Layout</h3>
+                <div class="objective-box">
+                    <h4>Learning Objectives</h4>
+                    <ul>
+                        <li>Apply CSS styles to HTML elements</li>
+                        <li>Understand the CSS box model</li>
+                        <li>Create a basic page layout</li>
+                    </ul>
+                </div>
+                <h4>Procedure</h4>
+                <ol>
+                    <li>Create an external CSS file named <code>styles.css</code></li>
+                    <li>Link the CSS file to your HTML document</li>
+                    <li>Style the body with a font family and background color</li>
+                    <li>Create a header section with centered text and padding</li>
+                    <li>Style navigation links with hover effects</li>
+                    <li>Implement a two-column layout using float or flexbox</li>
+                    <li>Add responsive design with media queries</li>
+                </ol>
+                <h4>Key Concepts to Demonstrate</h4>
+                <ul>
+                    <li>Class vs ID selectors</li>
+                    <li>Margin vs Padding</li>
+                    <li>Position property</li>
+                    <li>Flexbox basics</li>
+                </ul>
+                <a href="#" class="download-btn">Download Lab Sheet</a>
+                <a href="#" class="download-btn" style="background-color:#FF9800;">Solution Code</a>
+            </div>
+            
+            <!-- Additional lab experiments would continue here -->
+            
+        </section>
+        
+        <!-- Reference Links Section -->
+        <section id="references">
+            <h2>Reference Links (30+ Resources)</h2>
+            
+            <div class="reference-category">
+                <h3>Learning Platforms</h3>
+                <ul class="reference-links">
+                    <li><a href="https://www.w3schools.com" target="_blank">W3Schools - Web Development Tutorials</a></li>
+                    <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs (Mozilla)</a></li>
+                    <li><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a></li>
+                    <li><a href="https://www.codecademy.com" target="_blank">Codecademy</a></li>
+                    <li><a href="https://web.dev" target="_blank">web.dev by Google</a></li>
+                    <li><a href="https://www.udemy.com" target="_blank">Udemy Courses</a></li>
+                    <li><a href="https://www.coursera.org" target="_blank">Coursera</a></li>
+                    <li><a href="https://www.edx.org" target="_blank">edX</a></li>
+                </ul>
+            </div>
+            
+            <div class="reference-category">
+                <h3>Technical References</h3>
+                <ul class="reference-links">
+                    <li><a href="https://www.w3.org" target="_blank">W3C Standards</a></li>
+                    <li><a href="https://devdocs.io" target="_blank">DevDocs API Documentation</a></li>
+                    <li><a href="https://caniuse.com" target="_blank">Can I Use (Browser Compatibility)</a></li>
+                    <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks</a></li>
+                    <li><a href="https://www.smashingmagazine.com" target="_blank">Smashing Magazine</a></li>
+                    <li><a href="https://www.html5rocks.com" target="_blank">HTML5 Rocks</a></li>
+                    <li><a href="https://www.sitepoint.com" target="_blank">SitePoint</a></li>
+                    <li><a href="https://www.alistapart.com" target="_blank">A List Apart</a></li>
+                </ul>
+            </div>
+            
+            <div class="reference-category">
+                <h3>Tools & Utilities</h3>
+                <ul class="reference-links">
+                    <li><a href="https://codepen.io" target="_blank">CodePen</a></li>
+                    <li><a href="https://jsfiddle.net" target="_blank">JSFiddle</a></li>
+                    <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                    <li><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></li>
+                    <li><a href="https://validator.w3.org" target="_blank">W3C Validator</a></li>
+                    <li><a href="https://fonts.google.com" target="_blank">Google Fonts</a></li>
+                    <li><a href="https://fontawesome.com" target="_blank">Font Awesome</a></li>
+                    <li><a href="https://colorhunt.co" target="_blank">Color Hunt</a></li>
+                </ul>
+            </div>
+            
+            <div class="reference-category">
+                <h3>Advanced Topics</h3>
+                <ul class="reference-links">
+                    <li><a href="https://reactjs.org" target="_blank">React Official Documentation</a></li>
+                    <li><a href="https://vuejs.org" target="_blank">Vue.js Official Documentation</a></li>
+                    <li><a href="https://angular.io" target="_blank">Angular Official Documentation</a></li>
+                    <li><a href="https://nodejs.org" target="_blank">Node.js Official Documentation</a></li>
+                    <li><a href="https://expressjs.com" target="_blank">Express.js Documentation</a></li>
+                    <li><a href="https://www.mongodb.com" target="_blank">MongoDB Documentation</a></li>
+                    <li><a href="https://www.sqlite.org" target="_blank">SQLite Documentation</a></li>
+                    <li><a href="https://www.docker.com" target="_blank">Docker Documentation</a></li>
+                </ul>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2023 Web Technology/002 | Educational Resource | Last Updated: <span id="last-updated"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Set last updated date
+        document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+        
+        // Navigation active link highlighting
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('nav a').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link
